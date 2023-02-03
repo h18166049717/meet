@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo01</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            text-align: center;
+            background-color: lightblue;
+            padding: 20px;
+        }
+
+        section {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>遇见</h1>
+    </header>
+    <section>
+        <p>年轻人在旅行途中遇到了一位老人，老人讲述了他的生活故事，并给了年轻人很多人生的启示。最后，年轻人感激不尽地告别老人，继续他的旅程，而这次的遇见让他更加坚定了人生的信念。</p>
+    </section>
+    <button id="show-message">显示信息</button>
+    <script>
+        const button = document.querySelector("#show-message");
+        const message = "生活中的遇见不仅仅是偶然的，它们有时会对我们产生深远的影响，甚至改变我们的人生。因此，我们应该珍惜每一次遇见，吸取它们给我们带来的知识和感悟。";
+
+        button.addEventListener("click", function () {
+            alert(message);
+        });
+    </script>
+</body>
+
+</html>

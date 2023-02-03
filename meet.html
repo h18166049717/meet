@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo02</title>
+    <style>
+        body {
+            background: #a8ff78;
+            background: -webkit-linear-gradient(to right, #78ffd6, #a8ff78);
+            background: linear-gradient(to right, #78ffd6, #a8ff78);
+
+        }
+
+        #app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+        }
+
+        h1 {
+            color: green;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            width: 80%;
+            margin-top: 20px;
+        }
+
+        li {
+            width: 25%;
+            height: 200px;
+            background-color: skyblue;
+            border-radius: 10px;
+            margin: 10px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 20px;
+            color: black;
+            box-shadow: 2px 2px 5px gray;
+            transition: all 0.3s ease-in-out;
+        }
+
+        li:hover {
+            transform: scale(1.1);
+            background-color: orange;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>遇见</h1>
+        <p>在这里我们遇见了：</p>
+        <ul id="meetings"></ul>
+        <button id="addMeetingBtn">添加遇见</button>
+    </div>
+
+
+    <script>
+        const app = document.getElementById('app');
+        const meetingsList = document.getElementById('meetings');
+        const addMeetingBtn = document.getElementById('addMeetingBtn');
+
+        let meetings = [];
+
+        const addMeeting = (name) => {
+            meetings.push(name);
+            renderMeetings();
+        };
+
+        const removeMeeting = (index) => {
+            meetings.splice(index, 1);
+            renderMeetings();
+        };
+
+        const renderMeetings = () => {
+            meetingsList.innerHTML = '';
+            meetings.forEach((meeting, index) => {
+                const meetingEl = document.createElement('li');
+                meetingEl.innerHTML = meeting;
+                meetingEl.onclick = () => removeMeeting(index);
+                meetingsList.appendChild(meetingEl);
+            });
+        };
+
+        addMeetingBtn.onclick = () => {
+            const name = prompt('请输入遇见的名字：');
+            addMeeting(name);
+        };
+
+        renderMeetings();
+
+    </script>
+</body>
+
+</html>
